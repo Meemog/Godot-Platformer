@@ -17,13 +17,16 @@ var time_since_grounded: float = coyote_time
 var time_since_jump_input: float = jump_remember_time
 var time_since_last_jump: float = jump_delay
 
+var tps_adjustment: float
+
 func _physics_process(delta: float) -> void:
+    tps_adjustment = Engine.physics_ticks_per_second * delta
     
     process_horizontal()
     
     process_jump(delta)
     
-    velocity.y += gravity
+    velocity.y += gravity * tps_adjustment
     
     move_and_slide()
 
@@ -37,11 +40,11 @@ func process_horizontal() -> void:
     
     # If a movememnt key is pressed, apply acceleration
     if horizontal_scalar != 0:
-        velocity.x += horizontal_scalar * acceleration
+        velocity.x += horizontal_scalar * acceleration * tps_adjustment
     # Otherwise apply dampening
     elif velocity.x != 0:
         var current_vel = abs(velocity.x)
-        current_vel -= horizontal_dampening
+        current_vel -= horizontal_dampening * tps_adjustment
         if current_vel < 0:
             current_vel = 0
         velocity.x = current_vel * sign
