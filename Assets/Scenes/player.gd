@@ -9,13 +9,19 @@ extends CharacterBody2D
 @export_category("Vertical Movement")
 @export var gravity: float = 25
 @export var jump_force: float = 500
+@export var jump_remember_time: float = 0.15
+@export var coyote_time: float = 0.2
+@export var jump_delay: float = 0.2
 
-var grounded: bool = false
+var time_since_grounded: float = coyote_time
+var time_since_jump_input: float = jump_remember_time
+var time_since_last_jump: float = jump_delay
 
 func _physics_process(delta: float) -> void:
-    grounded = $Grounded.get_overlapping_bodies().size() > 0
     
     process_horizontal()
+    
+    process_jump(delta)
     
     velocity.y += gravity
     
@@ -44,6 +50,21 @@ func process_horizontal() -> void:
     if abs(velocity.x) > hard_max_velocity:
         velocity.x = hard_max_velocity * sign
 
+func process_jump(delta: float) -> void:
+    time_since_grounded += delta
+    time_since_jump_input += delta
+    time_since_last_jump += delta
+    
+    if $Grounded.get_overlapping_bodies().size() > 0:
+        time_since_grounded = 0
+    
+    if time_since_jump_input < jump_remember_time and time_since_grounded < coyote_time and time_since_last_jump > jump_delay:
+        jump()
+        
+func jump() -> void:
+    velocity.y = -jump_force
+    time_since_last_jump = 0
+
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("jump") and grounded:
-        velocity.y = -jump_force
+    if event.is_action_pressed("jump"):
+        time_since_jump_input = 0
