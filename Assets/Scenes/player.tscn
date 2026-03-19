@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://blbjuev65c7ov"]
+
+[ext_resource type="Texture2D" uid="uid://b2vhuvtu2vnc3" path="res://Assets/Sprites/WoofleSprite.png" id="1_6cd4h"]
+[ext_resource type="Script" uid="uid://cwhe804ntjjvr" path="res://Assets/Scenes/player.gd" id="1_7dd06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cd4h"]
+size = Vector2(34, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dd06"]
+size = Vector2(34, 4.5)
+
+[node name="player" type="CharacterBody2D" unique_id=1133361011]
+floor_constant_speed = true
+script = ExtResource("1_7dd06")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1526771646]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_6cd4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258719594]
+position = Vector2(2, 18.5)
+shape = SubResource("RectangleShape2D_6cd4h")
+
+[node name="Grounded" type="Area2D" parent="." unique_id=1059084938]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounded" unique_id=837006752]
+position = Vector2(2, 59.75)
+shape = SubResource("RectangleShape2D_7dd06")

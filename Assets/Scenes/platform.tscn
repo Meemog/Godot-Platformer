@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dg4pplicrohej"]
+
+[ext_resource type="Texture2D" uid="uid://bi12m2g0ko1b" path="res://Assets/Sprites/bmm.png" id="1_i5wvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k4t"]
+size = Vector2(2051.34, 2060.099)
+
+[node name="Platform" type="StaticBody2D" unique_id=1127007187]
+scale = Vector2(0.37439, 0.0495122)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2044589877]
+position = Vector2(-2.67097, 0.00052680395)
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_p1k4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=901045875]
+texture = ExtResource("1_i5wvk")
