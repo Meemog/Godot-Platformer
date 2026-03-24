@@ -30,7 +30,9 @@ func start(drain_speed: float = 0.005, start_position: float = 0.3, fish_power: 
 
 ## Stops the game early if needed
 func stop() -> void:
-    pass
+    if _game_state != Fish_State.Idle:
+        _game_state = Fish_State.Idle
+        visible = false
     
 func _process(delta: float) -> void:
     if _game_state == Fish_State.Ongoing:

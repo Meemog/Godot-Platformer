@@ -56,8 +56,6 @@ size = Vector2(5, 80.759995)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1xgp"]
 size = Vector2(5, 80.759995)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7dd06"]
-
 [node name="player" type="CharacterBody2D" unique_id=1133361011]
 floor_constant_speed = true
 script = ExtResource("1_7dd06")
@@ -65,7 +63,6 @@ script = ExtResource("1_7dd06")
 [node name="AnimationPivot" type="Node2D" parent="." unique_id=1023637860]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPivot" unique_id=2133951844]
-visible = false
 position = Vector2(-17, 0)
 scale = Vector2(0.375, 0.375)
 sprite_frames = SubResource("SpriteFrames_jp3cw")
@@ -104,8 +101,3 @@ collision_mask = 4
 position = Vector2(17.74, 17.38)
 shape = SubResource("RectangleShape2D_t1xgp")
 debug_color = Color(0.9019608, 0, 0.7647059, 0.41960785)
-
-[node name="TempSprite" type="Sprite2D" parent="." unique_id=1905813142]
-position = Vector2(-2.9802322e-07, 18.499996)
-scale = Vector2(38, 82.99999)
-texture = SubResource("PlaceholderTexture2D_7dd06")
