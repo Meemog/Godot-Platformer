@@ -71,7 +71,7 @@ scale = Vector2(0.375, 0.375)
 sprite_frames = SubResource("SpriteFrames_jp3cw")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258719594]
+[node name="DefaultCollider" type="CollisionShape2D" parent="." unique_id=1258719594]
 position = Vector2(0, 18.25)
 shape = SubResource("RectangleShape2D_6cd4h")
 
