@@ -1,30 +1,111 @@
 [gd_scene format=3 uid="uid://blbjuev65c7ov"]
 
-[ext_resource type="Texture2D" uid="uid://b2vhuvtu2vnc3" path="res://Assets/Sprites/WoofleSprite.png" id="1_6cd4h"]
 [ext_resource type="Script" uid="uid://cwhe804ntjjvr" path="res://Assets/Scenes/player.gd" id="1_7dd06"]
+[ext_resource type="Texture2D" uid="uid://ce0y8xhb004kb" path="res://Assets/Sprites/Woofles-Sheet.png" id="2_38rej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dd06"]
+atlas = ExtResource("2_38rej")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3t24"]
+atlas = ExtResource("2_38rej")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3tg1"]
+atlas = ExtResource("2_38rej")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lerqx"]
+atlas = ExtResource("2_38rej")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jp3cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dd06")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3t24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3tg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lerqx")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cd4h"]
-size = Vector2(34, 81)
+size = Vector2(38, 83.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dd06"]
 size = Vector2(34, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38rej"]
+size = Vector2(5, 80.759995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1xgp"]
+size = Vector2(5, 80.759995)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7dd06"]
 
 [node name="player" type="CharacterBody2D" unique_id=1133361011]
 floor_constant_speed = true
 script = ExtResource("1_7dd06")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1526771646]
+[node name="AnimationPivot" type="Node2D" parent="." unique_id=1023637860]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPivot" unique_id=2133951844]
+visible = false
+position = Vector2(-17, 0)
 scale = Vector2(0.375, 0.375)
-texture = ExtResource("1_6cd4h")
+sprite_frames = SubResource("SpriteFrames_jp3cw")
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258719594]
-position = Vector2(2, 18.5)
+position = Vector2(0, 18.25)
 shape = SubResource("RectangleShape2D_6cd4h")
 
 [node name="Grounded" type="Area2D" parent="." unique_id=1059084938]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grounded" unique_id=837006752]
-position = Vector2(2, 59.75)
+position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_7dd06")
+debug_color = Color(0.9019608, 0, 0.7647059, 0.41960785)
+
+[node name="WallLeft" type="Area2D" parent="." unique_id=581410529]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=704787157]
+position = Vector2(-18.09, 17.38)
+shape = SubResource("RectangleShape2D_38rej")
+debug_color = Color(0.9019608, 0, 0.7647059, 0.41960785)
+
+[node name="WallRight" type="Area2D" parent="." unique_id=191750028]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=776941941]
+position = Vector2(17.74, 17.38)
+shape = SubResource("RectangleShape2D_t1xgp")
+debug_color = Color(0.9019608, 0, 0.7647059, 0.41960785)
+
+[node name="TempSprite" type="Sprite2D" parent="." unique_id=1905813142]
+position = Vector2(-2.9802322e-07, 18.499996)
+scale = Vector2(38, 82.99999)
+texture = SubResource("PlaceholderTexture2D_7dd06")

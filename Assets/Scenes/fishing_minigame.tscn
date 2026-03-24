@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c3eu5o8yhtxek"]
+
+[ext_resource type="Texture2D" uid="uid://ba6etf3igb6j2" path="res://Assets/Sprites/WaterTexture.png" id="1_3tyqo"]
+[ext_resource type="Script" uid="uid://tj2k6x7cdivn" path="res://Assets/Scenes/fishing_minigame.gd" id="1_evfm0"]
+[ext_resource type="Texture2D" uid="uid://c70qqdthnsse1" path="res://Assets/Sprites/FishingBar.png" id="2_evfm0"]
+
+[node name="FishingMinigame" type="Node2D" unique_id=1702277594]
+script = ExtResource("1_evfm0")
+
+[node name="BarAnchor" type="Node2D" parent="." unique_id=53691719]
+position = Vector2(-29.875, 50.02)
+
+[node name="BarSprite" type="Sprite2D" parent="BarAnchor" unique_id=624364794]
+position = Vector2(-0.12500095, -90.020004)
+scale = Vector2(1.3749999, 11.25)
+texture = ExtResource("1_3tyqo")
+
+[node name="BorderSprite" type="Sprite2D" parent="." unique_id=218894180]
+texture = ExtResource("2_evfm0")

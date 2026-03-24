@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dg4pplicrohej"]
 
-[ext_resource type="Texture2D" uid="uid://bi12m2g0ko1b" path="res://Assets/Sprites/bmm.png" id="1_i5wvk"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k4t"]
 size = Vector2(2051.34, 2060.099)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qk4mf"]
 
 [node name="Platform" type="StaticBody2D" unique_id=1127007187]
 scale = Vector2(0.37439, 0.0495122)
@@ -15,4 +15,6 @@ scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_p1k4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=901045875]
-texture = ExtResource("1_i5wvk")
+position = Vector2(-2.6711125, -0.00015140165)
+scale = Vector2(2051.3367, 2060.0981)
+texture = SubResource("PlaceholderTexture2D_qk4mf")

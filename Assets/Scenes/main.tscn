@@ -1,12 +1,25 @@
 [gd_scene format=3 uid="uid://ik7p42lga63f"]
 
 [ext_resource type="PackedScene" uid="uid://blbjuev65c7ov" path="res://Assets/Scenes/player.tscn" id="1_l26l0"]
+[ext_resource type="Script" uid="uid://bmlcbrr3pkxcj" path="res://Assets/Scenes/main.gd" id="1_rvsrt"]
 [ext_resource type="PackedScene" uid="uid://dg4pplicrohej" path="res://Assets/Scenes/platform.tscn" id="2_qplxx"]
+[ext_resource type="PackedScene" uid="uid://bpfa36crfv15a" path="res://wall.tscn" id="3_elf4b"]
+[ext_resource type="PackedScene" uid="uid://c3eu5o8yhtxek" path="res://Assets/Scenes/fishing_minigame.tscn" id="4_guoxd"]
 
 [node name="Main" type="Node2D" unique_id=797445148]
+script = ExtResource("1_rvsrt")
 
 [node name="Player" parent="." unique_id=1910724421 instance=ExtResource("1_l26l0")]
 position = Vector2(538, 54)
 
 [node name="Platform" parent="." unique_id=1619514709 instance=ExtResource("2_qplxx")]
 position = Vector2(548, 578)
+
+[node name="Wall" parent="." unique_id=1104000861 instance=ExtResource("3_elf4b")]
+position = Vector2(176, 425)
+
+[node name="Wall2" parent="." unique_id=517224853 instance=ExtResource("3_elf4b")]
+position = Vector2(328, 306)
+
+[node name="FishingMinigame" parent="." unique_id=1702277594 instance=ExtResource("4_guoxd")]
+position = Vector2(1059, 158)
